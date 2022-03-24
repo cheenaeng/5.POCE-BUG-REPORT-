@@ -1,7 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import methodOverride from 'method-override';
-
 import bindRoutes from './routes.mjs';
 
 // Initialise Express instance
@@ -17,9 +16,12 @@ app.use(methodOverride('_method'));
 // Expose the files stored in the public folder
 app.use(express.static('public'));
 
+app.use(express.json());
+
 // Bind route definitions to the Express application
 bindRoutes(app);
 
 // Set Express to listen on the given port
 const PORT = process.env.PORT || 3004;
 app.listen(PORT);
+

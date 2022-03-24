@@ -1,0 +1,23 @@
+.form-wrapper,
+.see-form-result,
+.feature-form-wrapper,
+.new-feature-wrapper {
+  display: none;
+  width: 50vw;
+  margin: auto;
+}
+
+.divider {
+  width: 50vw;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  gap: 10vw;
+  margin: 2vh;
+}
+
+.hide {
+  display: none;
+}

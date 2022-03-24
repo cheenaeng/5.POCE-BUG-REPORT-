@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.1.0/dist/js-loading-overlay.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/script.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="registration">
+        <div class="flex flex-col gap-y-5">
+          <div
+            class="register border border-sky-50 p-2 shadow-sm shadow-slate-200"
+          >
+            <h1 class="font-bold text-3xl text-center">Register</h1>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="registerEmail" class="input-bg" />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="registerPassword" class="input-bg" />
+            </div>
+            <div class="flex justify-center">
+              <button
+                class="btn-black my-2 register-btn"
+                onclick="registerUser()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+          <div
+            class="log-in border border-sky-50 p-2 shadow-sm shadow-slate-200"
+          >
+            <h1 class="font-bold text-3xl text-center">Log in details</h1>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="logEmail" class="input-bg" />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="logPassword" class="input-bg" />
+              <div class="flex justify-center">
+                <button class="btn-black my-2 login-btn" onclick="logUser()">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-dashboard hide">
+        <h1 class="font-bold text-3xl text-center">Bug Report</h1>
+        <div class="divider top-form my-4">
+          <div class="button-wrapper flex justify-center my-5">
+            <button class="btn-fancy" id="see-bug-form" onclick="seeBugForm()">
+              Create a bug
+            </button>
+          </div>
+          <div class="form-wrapper">
+            <div class="bg-slate-100 rounded">
+              <div class="flex gap-x-5 justify-center p-2">
+                <div>
+                  <label for="problem">Problem: </label>
+                  <input type="text" id="problem" class="input-bg" />
+                </div>
+                <div>
+                  <label for="error">Error: </label>
+                  <input type="text" id="error" class="input-bg" />
+                </div>
+                <div>
+                  <label for="commit ">Commit: </label>
+                  <input type="text" id="commit" class="input-bg" />
+                </div>
+              </div>
+              <div>
+                <div class="features-select"></div>
+                <div class="flex justify-center">
+                  <button onclick="submitBug()" class="btn-black">
+                    Submit Bug
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="see-form-result">
+            <ul>
+              <label for="bug-id">Serial number:</label>
+              <li class="bug-post-result" id="bug-id"></li>
+              <label for="bug-problem">Problem:</label>
+              <li class="bug-post-result" id="bug-problem"></li>
+              <label for="bug-error">Error Text:</label>
+              <li class="bug-post-result" id="bug-error"></li>
+              <label for="bug-commit">Commit:</label>
+              <li class="bug-post-result" id="bug-commit"></li>
+              <label for="bug-created">Created at:</label>
+              <li class="bug-post-result" id="bug-created"></li>
+              <label for="bug-created">Feature:</label>
+              <li id="bug-feature"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider middle-list my-4">
+          <h3 class="text-center font-bold text-3xl">List of Bugs:</h3>
+          <div class="flex justify-center bg-slate-100 p-3">
+            <div class="bugs-wrapper grid grid-cols-5 gap-4"></div>
+          </div>
+        </div>
+
+        <div class="divider bottom-list">
+          <div class="see-features-form-btn-wrapper">
+            <div class="flex justify-center">
+              <button
+                id="add-feature-form"
+                onclick="seeFeatureForm()"
+                class="btn-fancy"
+              >
+                Add Features
+              </button>
+            </div>
+            <div class="feature-form-wrapper">
+              <div class="flex flex-col gap-y-4 bg-slate-100 p-3">
+                <div class="mx-5 flex justify-center gap-x-2">
+                  <label for="name" class="text-xl">Name: </label>
+                  <input type="text" id="name" class="input-bg w-1/3" />
+                </div>
+                <div class="flex justify-center">
+                  <button onclick="submitFeature()" class="btn-black">
+                    Add new feature
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="new-feature-wrapper">
+              <p id="featureName"></p>
+              <p id="featureDate"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
